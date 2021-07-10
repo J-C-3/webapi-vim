@@ -141,6 +141,7 @@ function! webapi#http#get(url, ...) abort
         let command .= ' -H ' . quote . key . ': ' . headdata[key] . quote
       endif
     endfor
+    let command .= ' -A ' . quote . 'POTATOsUserAgent/0.1' . quote
     let command .= ' '.quote.url.quote
     let res = s:system(command)
   elseif executable('wget')
